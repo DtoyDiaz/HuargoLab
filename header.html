@@ -1,21 +1,31 @@
-<header class="w-full bg-hg-bg border-b border-white/10">
-  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-5">
-    <a href="index.html" class="font-display text-2xl md:text-3xl text-hg-orange tracking-wide">
+<header class="w-full bg-hg-bg border-b border-white/10 relative">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-7">
+    <a href="index.html" class="font-display text-3xl md:text-4xl text-hg-orange tracking-wide">
       HUARGOLAB
     </a>
-    <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-white">
-      <li><a href="index.html#tienda" class="nav-link">Tienda</a></li>
-      <li><a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="nav-link">Contáctanos</a></li>
-    </ul>
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-8">
+      <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-white">
+        <li><a href="index.html#tienda" class="nav-link">Tienda</a></li>
+        <li><a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="nav-link">Contáctanos</a></li>
+        <li><a href="acerca-de-nosotros.html" class="nav-link">Acerca de nosotros</a></li>
+      </ul>
       <!-- El ícono de carrito se inserta aquí vía JS, solo en index.html -->
       <div id="cart-icon-slot"></div>
-      <!-- Mobile menu button (visual only) -->
-      <button class="md:hidden text-white" aria-label="Abrir menú">
+      <!-- Mobile menu button -->
+      <button id="mobile-menu-toggle" class="md:hidden text-white" aria-label="Abrir menú">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
         </svg>
       </button>
     </div>
   </nav>
+
+  <!-- Menú móvil desplegable -->
+  <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-hg-bg border-b border-white/10 shadow-xl z-40">
+    <ul class="flex flex-col px-6 py-2 text-sm font-medium text-white">
+      <li><a href="index.html#tienda" class="block py-3 border-b border-white/5 nav-link">Tienda</a></li>
+      <li><a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="block py-3 border-b border-white/5 nav-link">Contáctanos</a></li>
+      <li><a href="acerca-de-nosotros.html" class="block py-3 nav-link">Acerca de nosotros</a></li>
+    </ul>
+  </div>
 </header>

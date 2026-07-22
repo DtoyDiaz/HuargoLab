@@ -26,6 +26,20 @@
       loadPartial("site-header", "header.html"),
       loadPartial("site-footer", "footer.html"),
     ]).then(function () {
+      // Activa el menú móvil (hamburguesa) del header compartido.
+      const toggle = document.getElementById("mobile-menu-toggle");
+      const menu = document.getElementById("mobile-menu");
+      if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+          menu.classList.toggle("hidden");
+        });
+        // Cierra el menú al elegir una opción.
+        menu.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", function () {
+            menu.classList.add("hidden");
+          });
+        });
+      }
       document.dispatchEvent(new Event("partialsLoaded"));
     });
   });

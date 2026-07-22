@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acerca de Nosotros — HuargoLab</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'hg-bg': '#121212',
+          'hg-surface': '#1A1A1A',
+          'hg-orange': '#FF4F1E',
+          'hg-orange-dark': '#D93C12',
+          'hg-purple': '#6B4FE0',
+          'hg-purple-dark': '#4F38AD',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { background-color: #121212; font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: 0.01em; }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    background-color: #FF4F1E;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .social-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .social-icon:hover {
+    color: #FF4F1E;
+    transform: translateY(-2px);
+  }
+
+  .footer-link {
+    transition: color 0.3s ease;
+  }
+  .footer-link:hover { color: #FF4F1E; }
+
+  .btn-primary {
+    background-color: #FF4F1E;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #D93C12;
+    transform: translateY(-2px);
+  }
+
+  .page-content h2 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.01em;
+  }
+  .page-content a { color: #FF4F1E; text-decoration: underline; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-hg-bg text-white">
+
+<!-- ============ HEADER (compartido, ver header.html) ============ -->
+<div id="site-header"></div>
+<script src="partials.js"></script>
+
+<main>
+  <section class="w-full">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 py-14 lg:py-20">
+
+      <span class="inline-flex items-center gap-2 border border-hg-orange text-white text-xs font-medium px-4 py-1.5 rounded-full mb-6">
+        Nuestra historia
+      </span>
+
+      <h1 class="font-display text-3xl sm:text-4xl text-hg-orange leading-tight mb-10">
+        ACERCA DE<br>NOSOTROS
+      </h1>
+
+      <div class="page-content text-white/85 text-base leading-relaxed space-y-6">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+
+        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+
+        <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur.</p>
+
+        <section class="pt-4">
+          <p class="text-white/70">¿Tienes alguna pregunta sobre HuargoLab? Escríbenos, con gusto te ayudamos.</p>
+          <a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="btn-primary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base mt-4">
+            Escribir por WhatsApp
+          </a>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER (compartido, ver footer.html) ============ -->
+<div id="site-footer"></div>
+
+</body>
+</html>
