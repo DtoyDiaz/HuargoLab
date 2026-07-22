@@ -45,9 +45,7 @@ exports.handler = async function (event) {
   }
 
   // Por si el valor se copió con espacios o saltos de línea accidentales.
-  const rawLength = secret.length;
   secret = secret.trim();
-  const trimmedLength = secret.length;
 
   // El orden importa: reference + amountInCents + currency + secreto
   const concatenated = `${reference}${amountInCents}${currency}${secret}`;
@@ -56,21 +54,6 @@ exports.handler = async function (event) {
   return {
     statusCode: 200,
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      signature,
-      // Info de diagnóstico segura (no expone el secreto en sí):
-      debug: {
-        secretRawLength: rawLength,
-        secretTrimmedLength: trimmedLength,
-        hadExtraWhitespace: rawLength !== trimmedLength,
-        secretFirst2: secret.slice(0, 2),
-        secretLast2: secret.slice(-2),
-        secretFull: secret, // TEMPORAL: quitar apenas se resuelva el problema
-        concatenatedFull: concatenated, // TEMPORAL: quitar apenas se resuelva el problema
-        referenceUsed: reference,
-        amountInCentsUsed: amountInCents,
-        currencyUsed: currency,
-      },
-    }),
+    body: JSON.stringify({ signature }),
   };
 };
