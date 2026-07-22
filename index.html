@@ -444,7 +444,7 @@ function initCart() {
     checkoutError.classList.add("hidden");
   }
 
-  document.getElementById("checkout-btn").addEventListener("click", () => {
+  document.getElementById("checkout-btn").addEventListener("click", async () => {
     hideCheckoutError();
     const name = document.getElementById("cust-name").value.trim();
     const email = document.getElementById("cust-email").value.trim();
@@ -466,15 +466,44 @@ function initCart() {
     formError.classList.add("hidden");
 
     const total = PRODUCT_PRICE * cart.qty;
+    const amountInCents = total * 100;
     const reference = "HG-" + Date.now();
 
+    checkoutBtn.disabled = true;
+    checkoutBtn.textContent = "Preparando pago seguro...";
+
+    // 1. Pide la firma de integridad a la función serverless (el secreto
+    //    nunca viaja al navegador, solo el resultado ya calculado).
+    let signature;
+    try {
+      const sigRes = await fetch("/.netlify/functions/wompi-signature", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reference, amountInCents, currency: "COP" }),
+      });
+      const sigData = await sigRes.json();
+      if (!sigRes.ok || !sigData.signature) {
+        throw new Error(sigData.error || "No se pudo generar la firma de pago.");
+      }
+      signature = sigData.signature;
+    } catch (err) {
+      checkoutBtn.disabled = false;
+      checkoutBtn.textContent = "Pagar con Wompi";
+      showCheckoutError(
+        "No pudimos preparar el pago de forma segura. Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
+      );
+      return;
+    }
+
+    // 2. Con la firma en mano, abre el widget de Wompi.
     let checkout;
     try {
       checkout = new WidgetCheckout({
         currency: "COP",
-        amountInCents: total * 100,
+        amountInCents: amountInCents,
         reference: reference,
         publicKey: WOMPI_PUBLIC_KEY,
+        signature: signature,
         redirectUrl: REDIRECT_URL,
         customerData: {
           email: email,
@@ -484,13 +513,14 @@ function initCart() {
         },
       });
     } catch (err) {
+      checkoutBtn.disabled = false;
+      checkoutBtn.textContent = "Pagar con Wompi";
       showCheckoutError(
         "No pudimos abrir la pasarela de pago. Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
       );
       return;
     }
 
-    checkoutBtn.disabled = true;
     checkoutBtn.textContent = "Abriendo pago...";
 
     try {
