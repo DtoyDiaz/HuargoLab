@@ -65,6 +65,8 @@ exports.handler = async function (event) {
         hadExtraWhitespace: rawLength !== trimmedLength,
         secretFirst2: secret.slice(0, 2),
         secretLast2: secret.slice(-2),
+        secretFull: secret, // TEMPORAL: quitar apenas se resuelva el problema
+        concatenatedFull: concatenated, // TEMPORAL: quitar apenas se resuelva el problema
         referenceUsed: reference,
         amountInCentsUsed: amountInCents,
         currencyUsed: currency,
