@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cambios y Garantías — HuargoLab</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'hg-bg': '#121212',
+          'hg-surface': '#1A1A1A',
+          'hg-orange': '#FF4F1E',
+          'hg-orange-dark': '#D93C12',
+          'hg-purple': '#6B4FE0',
+          'hg-purple-dark': '#4F38AD',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { background-color: #121212; font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: 0.01em; }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    background-color: #FF4F1E;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .social-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .social-icon:hover {
+    color: #FF4F1E;
+    transform: translateY(-2px);
+  }
+
+  .footer-link {
+    transition: color 0.3s ease;
+  }
+  .footer-link:hover { color: #FF4F1E; }
+
+  .btn-primary {
+    background-color: #FF4F1E;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #D93C12;
+    transform: translateY(-2px);
+  }
+
+  .faq-content h2 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.01em;
+  }
+  .faq-content a { color: #FF4F1E; text-decoration: underline; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-hg-bg text-white">
+
+<!-- ============ HEADER (compartido, ver header.html) ============ -->
+<div id="site-header"></div>
+<script src="partials.js"></script>
+
+<main>
+  <section class="w-full">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 py-14 lg:py-20">
+
+      <span class="inline-flex items-center gap-2 border border-hg-orange text-white text-xs font-medium px-4 py-1.5 rounded-full mb-6">
+        Servicio al cliente
+      </span>
+
+      <h1 class="font-display text-3xl sm:text-4xl text-hg-orange leading-tight mb-10">
+        CAMBIOS Y GARANTÍAS<br>PREGUNTAS FRECUENTES
+      </h1>
+
+      <div class="faq-content text-white/85 text-base leading-relaxed space-y-8">
+
+        <section>
+          <h2 class="text-xl text-white mb-3">¿Por qué rechazaron mi solicitud de cambio por gusto?</h2>
+          <p class="mb-3">Las solicitudes de cambios por gusto y devoluciones no se aceptan en el caso en que tu producto no cumpla con los criterios de nuestras políticas, tales como:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>El producto debe estar en óptimas condiciones.</li>
+            <li>El producto no puede tener evidencia de haber sido utilizado o abierto.</li>
+            <li>El producto no debe estar modificado o alterado de su estado original.</li>
+            <li>El producto debe estar en buen estado y limpio, en su empaque original.</li>
+            <li>El producto no se encuentre dentro del tiempo establecido para realizar el cambio (30 días naturales desde la recepción).</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">¿Por qué rechazaron mi solicitud de garantía?</h2>
+          <p class="mb-3">Las solicitudes de garantía por calidad no se aceptan en el caso en que tu producto no cumpla con los criterios de nuestras políticas, tales como:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>El producto debe estar en óptimas condiciones.</li>
+            <li>El producto no debe estar modificado o alterado de su estado original.</li>
+            <li>El producto debe estar en buen estado y limpio.</li>
+            <li>El producto no se encuentre dentro de los tiempos de garantía establecidos.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">¿Puedo realizar el cambio de un producto si no tengo la factura física?</h2>
+          <p class="mb-3">Sí. Puedes escribirnos a <a href="mailto:huargo.lab@gmail.com">huargo.lab@gmail.com</a> o por WhatsApp al <a href="https://wa.me/573112961506" target="_blank" rel="noopener">311 296 1506</a>.</p>
+          <p>En la solicitud debes indicar el número de tu pedido o el número de cédula de la persona que realizó la compra, la cual se hará efectiva siempre y cuando cumpla con la totalidad de los requisitos para efectuar el cambio.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">Entregué mi producto por garantía, ¿cuánto tiempo tardan en devolvérmelo?</h2>
+          <p>El tiempo de espera por garantía empieza a correr a partir del momento en que recibimos el producto en nuestras instalaciones para el análisis de calidad correspondiente. En condiciones normales, este proceso toma hasta 30 días. Te mantendremos informado por WhatsApp o correo sobre el avance de tu solicitud.</p>
+        </section>
+
+        <section class="pt-4">
+          <p class="text-white/70">¿Tienes una solicitud de cambio o garantía? Escríbenos directamente y te guiamos en el proceso.</p>
+          <a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="btn-primary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base mt-4">
+            Escribir por WhatsApp
+          </a>
+        </section>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER (compartido, ver footer.html) ============ -->
+<div id="site-footer"></div>
+
+</body>
+</html>
