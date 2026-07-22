@@ -507,7 +507,7 @@ function initCart() {
         amountInCents: amountInCents,
         reference: reference,
         publicKey: WOMPI_PUBLIC_KEY,
-        signature: signature,
+        signature: { integrity: signature },
         redirectUrl: REDIRECT_URL,
         customerData: {
           email: email,
