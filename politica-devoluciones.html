@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Política de Devoluciones y Cambios — HuargoLab</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          'hg-bg': '#121212',
+          'hg-surface': '#1A1A1A',
+          'hg-orange': '#FF4F1E',
+          'hg-orange-dark': '#D93C12',
+          'hg-purple': '#6B4FE0',
+          'hg-purple-dark': '#4F38AD',
+        },
+        fontFamily: {
+          display: ['Anton', 'sans-serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  body { background-color: #121212; font-family: 'Inter', sans-serif; }
+  .font-display { font-family: 'Anton', sans-serif; letter-spacing: 0.01em; }
+
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 2px;
+    background-color: #FF4F1E;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  .social-icon {
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+  .social-icon:hover {
+    color: #FF4F1E;
+    transform: translateY(-2px);
+  }
+
+  .footer-link {
+    transition: color 0.3s ease;
+  }
+  .footer-link:hover { color: #FF4F1E; }
+
+  .btn-primary {
+    background-color: #FF4F1E;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  .btn-primary:hover {
+    background-color: #D93C12;
+    transform: translateY(-2px);
+  }
+
+  .policy-content h2 {
+    font-family: 'Anton', sans-serif;
+    letter-spacing: 0.01em;
+  }
+  .policy-content a { color: #FF4F1E; text-decoration: underline; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-hg-bg text-white">
+
+<!-- ============ HEADER (compartido, ver header.html) ============ -->
+<div id="site-header"></div>
+<script src="partials.js"></script>
+
+<main>
+  <section class="w-full">
+    <div class="max-w-3xl mx-auto px-6 lg:px-10 py-14 lg:py-20">
+
+      <span class="inline-flex items-center gap-2 border border-hg-orange text-white text-xs font-medium px-4 py-1.5 rounded-full mb-6">
+        Servicio al cliente
+      </span>
+
+      <h1 class="font-display text-3xl sm:text-4xl text-hg-orange leading-tight mb-10">
+        POLÍTICA DE DEVOLUCIONES<br>Y CAMBIOS
+      </h1>
+
+      <div class="policy-content text-white/85 text-base leading-relaxed space-y-8">
+
+        <section>
+          <h2 class="text-xl text-white mb-3">Proceso para devoluciones y cambios</h2>
+          <p class="mb-3">Si quieres devolver un producto porque no satisface tus expectativas, ponte en contacto con nosotros por WhatsApp al <a href="https://wa.me/573112961506" target="_blank" rel="noopener">311 296 1506</a> o al correo <a href="mailto:huargo.lab@gmail.com">huargo.lab@gmail.com</a>. Los gastos de devolución serán los mismos que los de entrega, y serán descontados del importe total a devolver.</p>
+          <p class="mb-3">En ningún caso debes devolver la mercancía a HuargoLab sin antes contactarnos. HuargoLab no se hará responsable de la mercancía si el cliente la devuelve por sus propios medios.</p>
+          <p>Para devolver cualquier artículo de nuestra tienda online, escríbenos a <a href="mailto:huargo.lab@gmail.com">huargo.lab@gmail.com</a> o al WhatsApp <a href="https://wa.me/573112961506" target="_blank" rel="noopener">311 296 1506</a>.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">Cambios o devoluciones</h2>
+          <p class="mb-3">Si recibes el producto y no es lo que buscabas, no te preocupes: puedes devolverlo en un plazo de 30 días naturales desde la recepción del producto.</p>
+          <p class="mb-3">Para ello solo debes ponerte en contacto con HuargoLab por cualquiera de los medios disponibles. Es necesario que el producto esté sellado, sin abrir y sin uso, y que conserves todos sus accesorios y empaque original.</p>
+          <p class="mb-3">Después de haber recibido la mercancía en nuestro almacén y comprobado su estado, obtendrás la devolución del importe de tu pedido, descontando los gastos de transporte, mediante reverso al mismo medio de pago utilizado en Wompi (o transferencia bancaria si el reverso no es posible para tu método de pago).</p>
+          <p>No olvides conservar el empaque original: si no devuelves el producto en su empaque de origen, sufrirá una depreciación. Te recomendamos reembalarlo bien para que no se dañe en el transporte, ya que si lo recibimos muy afectado tendremos que aplicar un sobrecosto por esa depreciación.</p>
+        </section>
+
+        <section class="bg-hg-surface border border-white/10 rounded-2xl p-6">
+          <ul class="list-disc list-inside space-y-2 text-white/85">
+            <li>Tienes 30 días para hacer un cambio o devolución del producto.</li>
+            <li>El producto no puede haber sido abierto ni usado, y debe estar en su caja o bolsa original, en el mismo estado en que fue enviado. Por tratarse de un producto de higiene íntima, no se aceptan devoluciones de unidades abiertas o usadas, salvo defecto de fábrica.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">Motivos de cambios</h2>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Me arrepentí de la compra.</li>
+            <li>No es como en la imagen.</li>
+            <li>Producto defectuoso antes de usarse: el producto recibido posee alguna falla o rotura en el empaque.</li>
+            <li>Recibí algo que no pedí: el producto recibido es diferente al que solicitaste.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">Producto defectuoso o garantía</h2>
+          <p class="mb-3">Para la devolución por producto defectuoso, primero debemos constatar el defecto mediante el envío de fotos donde se compruebe que el producto está dañado o deteriorado. A partir de ahí, todo corre por nuestra cuenta.</p>
+          <p class="mb-3">En caso de producto defectuoso, HuargoLab se hace cargo de todos los gastos necesarios para la reposición o devolución del importe, según corresponda. Esta garantía no cubre deficiencias ocasionadas por negligencia, golpes, uso indebido, mal almacenamiento (por ejemplo exposición directa al sol o a temperaturas extremas) o manipulación indebida del envase.</p>
+          <p class="mb-3">La garantía perderá su valor si se modifican, alteran o sustituyen algunos de los datos de la misma o del comprobante de compra.</p>
+
+          <p class="text-white font-semibold mt-4 mb-2">Para hacer uso de la garantía es imprescindible:</p>
+          <ul class="list-disc list-inside space-y-2">
+            <li>Tener presente el plazo de garantía del producto.</li>
+            <li>Contar con el comprobante o factura de compra.</li>
+            <li>Enviar el producto en las mismas condiciones en que lo recibiste, en su empaque original, con documentos respectivos y todos sus accesorios.</li>
+            <li>Comunicarte con nosotros para coordinar el envío del producto defectuoso a nuestras instalaciones.</li>
+            <li>Una vez recibamos el producto, nos comunicaremos contigo para hacer valer la garantía.</li>
+          </ul>
+
+          <p class="mt-4">Según la Ley 1480 de 2011 (Estatuto del Consumidor de Colombia), el proveedor tiene derecho a escoger si repara, repone, reembolsa o rechaza la solicitud de garantía, conforme a lo evaluado.</p>
+        </section>
+
+        <section>
+          <h2 class="text-xl text-white mb-3">Errores atribuibles a HuargoLab</h2>
+          <p>Si nos devuelves un producto debido a un error por parte de HuargoLab —es decir, producto dañado, deteriorado, defectuoso de fábrica o error en el envío— nosotros siempre asumiremos todos los gastos de la devolución.</p>
+        </section>
+
+        <section class="pt-4">
+          <p class="text-white/70">¿Tienes dudas sobre un cambio o devolución? Escríbenos directamente por WhatsApp y te ayudamos con el proceso.</p>
+          <a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="btn-primary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base mt-4">
+            Escribir por WhatsApp
+          </a>
+        </section>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER (compartido, ver footer.html) ============ -->
+<div id="site-footer"></div>
+
+</body>
+</html>

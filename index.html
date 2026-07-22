@@ -119,25 +119,9 @@
 
 <body class="bg-hg-bg text-white">
 
-<!-- ============ HEADER ============ -->
-<header class="w-full bg-hg-bg border-b border-white/10">
-  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 lg:px-10 py-5">
-    <a href="#" class="font-display text-2xl md:text-3xl text-hg-orange tracking-wide">
-      HUARGOLAB
-    </a>
-    <ul class="hidden md:flex items-center gap-10 text-sm font-medium text-white">
-      <li><a href="#tienda" class="nav-link">Tienda</a></li>
-      <li><a href="#contacto" class="nav-link">Contáctanos</a></li>
-      <li><a href="#blog" class="nav-link">Blog</a></li>
-    </ul>
-    <!-- Mobile menu button (visual only) -->
-    <button class="md:hidden text-white" aria-label="Abrir menú">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-  </nav>
-</header>
+<!-- ============ HEADER (compartido, ver header.html) ============ -->
+<div id="site-header"></div>
+<script src="partials.js"></script>
 
 <main>
 
@@ -172,7 +156,7 @@
           <a href="#comprar" class="btn-primary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base">
             Quiero mi lubricante
           </a>
-          <a href="https://wa.me/000000000000" target="_blank" rel="noopener" class="btn-secondary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base">
+          <a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="btn-secondary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base">
             Resolver mis dudas
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.6 6.32A8.86 8.86 0 0 0 12.03 4C7.4 4 3.65 7.75 3.65 12.38c0 1.46.38 2.88 1.1 4.13L4 21l4.6-1.2a8.84 8.84 0 0 0 4.42 1.17c4.63 0 8.38-3.75 8.38-8.37 0-2.24-.87-4.34-2.4-5.88l.6-.4zM12.03 19.4a7.04 7.04 0 0 1-3.58-.98l-.26-.15-2.65.7.7-2.59-.17-.27a7.02 7.02 0 0 1-1.08-3.73c0-3.88 3.16-7.04 7.05-7.04 1.88 0 3.65.74 4.98 2.06a6.99 6.99 0 0 1 2.06 4.98c0 3.88-3.16 7.02-7.05 7.02z"/>
@@ -201,13 +185,43 @@
           público a un solo género. Ver nota de la revisión anterior.
         -->
         <img
-          src="/imagen-producto.jpg"
+          src="banner-home.png"
           alt="Tubo de Gel Lubricante Íntimo Premium HuargoLab"
           class="w-full h-full object-cover object-center lg:object-right"
         >
       </div>
     </div>
 
+  </section>
+
+  <!-- ============ TIENDA / PRODUCTO ============ -->
+  <section id="tienda" class="w-full bg-hg-bg">
+    <div class="max-w-6xl mx-auto px-6 lg:px-10 py-16" id="comprar">
+      <h2 class="font-display text-2xl sm:text-3xl text-white text-center mb-10">
+        NUESTRO <span class="text-hg-orange">PRODUCTO</span>
+      </h2>
+
+      <div class="max-w-md mx-auto bg-hg-surface border border-white/10 rounded-2xl p-7 text-center">
+        <img
+          src="imagen-producto.png"
+          alt="Gel Lubricante Íntimo Premium HuargoLab"
+          class="w-full h-56 object-contain mb-6"
+        >
+        <h3 class="font-display text-xl text-white mb-2">GEL LUBRICANTE ÍNTIMO PREMIUM</h3>
+        <p class="text-sm text-white/70 mb-4">Base de agua · Compatible con preservativo y juguetes</p>
+        <p class="font-display text-2xl text-hg-orange mb-6" id="product-price-label">$42.000 COP</p>
+
+        <div class="flex items-center justify-center gap-4 mb-6">
+          <button id="qty-minus" class="w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" aria-label="Disminuir cantidad">−</button>
+          <span id="qty-value" class="text-white font-semibold w-6 text-center">1</span>
+          <button id="qty-plus" class="w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" aria-label="Aumentar cantidad">+</button>
+        </div>
+
+        <button id="add-to-cart" class="btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base">
+          Añadir al carrito
+        </button>
+      </div>
+    </div>
   </section>
 
   <!-- ============ COMO FUNCIONA ============ -->
@@ -254,60 +268,274 @@
 
 </main>
 
-<!-- ============ FOOTER ============ -->
-<footer class="w-full bg-hg-bg border-t border-white/10">
-  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+<!-- ============ FOOTER (compartido, ver footer.html) ============ -->
+<div id="site-footer"></div>
 
-      <!-- Logo -->
-      <div>
-        <a href="#" class="font-display text-2xl text-hg-orange">HUARGOLAB</a>
+<!-- ============ CARRITO (DRAWER) ============ -->
+<div id="cart-overlay" class="hidden fixed inset-0 bg-black/60 z-40"></div>
+
+<aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-[420px] bg-hg-surface border-l border-white/10 z-50 translate-x-full transition-transform duration-300 flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-white/10">
+    <h3 class="font-display text-xl text-white">TU CARRITO</h3>
+    <button id="cart-close" aria-label="Cerrar carrito" class="text-white hover:text-hg-orange">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="flex-1 overflow-y-auto px-6 py-5">
+    <div id="cart-empty" class="text-white/60 text-sm text-center mt-10">Tu carrito está vacío.</div>
+
+    <div id="cart-item" class="hidden flex items-start gap-4 border-b border-white/10 pb-5 mb-5">
+      <img src="imagen-producto.png" alt="Gel Lubricante Íntimo Premium" class="w-16 h-16 object-contain bg-hg-bg rounded-lg border border-white/10">
+      <div class="flex-1">
+        <p class="text-white font-semibold text-sm mb-1">Gel Lubricante Íntimo Premium</p>
+        <p class="text-white/60 text-xs mb-2" id="cart-item-price">$42.000 c/u</p>
+        <div class="flex items-center gap-3">
+          <button id="cart-qty-minus" class="w-7 h-7 rounded-full bg-hg-bg border border-white/20 text-white text-sm hover:border-hg-orange transition-colors">−</button>
+          <span id="cart-qty-value" class="text-white text-sm w-4 text-center">1</span>
+          <button id="cart-qty-plus" class="w-7 h-7 rounded-full bg-hg-bg border border-white/20 text-white text-sm hover:border-hg-orange transition-colors">+</button>
+          <button id="cart-remove" class="ml-auto text-white/50 hover:text-hg-orange text-xs underline">Quitar</button>
+        </div>
       </div>
-
-      <!-- Enlaces principales -->
-      <div class="flex flex-col gap-3 text-white/80 text-sm">
-        <a href="#tienda" class="footer-link">Tienda</a>
-        <a href="#contacto" class="footer-link">Contáctanos</a>
-        <a href="#blog" class="footer-link">Blog</a>
-      </div>
-
-      <!-- Ayuda / legales -->
-      <div class="flex flex-col gap-3 text-white/80 text-sm">
-        <a href="#" class="footer-link">Devolución y reembolso</a>
-        <a href="#" class="footer-link">Cambios y garantías</a>
-        <a href="#" class="footer-link">Preguntas frecuentes</a>
-        <a href="#" class="footer-link">Términos y condiciones</a>
-        <a href="#" class="footer-link">Políticas de publicidad</a>
-      </div>
-
-      <!-- Redes sociales -->
-      <div class="flex gap-5 sm:justify-end items-start">
-        <a href="#" aria-label="Facebook" class="social-icon text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.13 8.44 9.94v-7.03H7.9v-2.91h2.54V9.83c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.24.2 2.24.2v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.81 8.44-4.94 8.44-9.94z"/>
-          </svg>
-        </a>
-        <a href="#" aria-label="X (Twitter)" class="social-icon text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M18.9 2H22l-7.4 8.5L23 22h-6.9l-5.4-7.1L4.6 22H1.5l7.9-9.1L1 2h7l4.9 6.5L18.9 2z"/>
-          </svg>
-        </a>
-        <a href="#" aria-label="Instagram" class="social-icon text-white">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="18" height="18" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
-      </div>
-
     </div>
 
-    <div class="border-t border-white/10 mt-10 pt-6 text-center text-xs text-white/40">
-      © 2026 HuargoLab. Todos los derechos reservados.
+    <div id="checkout-form" class="hidden space-y-3">
+      <p class="text-white text-sm font-semibold mb-2">Datos de envío</p>
+      <input id="cust-name" type="text" placeholder="Nombre completo" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
+      <input id="cust-email" type="email" placeholder="Correo electrónico" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
+      <input id="cust-phone" type="tel" placeholder="Teléfono / WhatsApp (sin indicativo)" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
+      <input id="cust-address" type="text" placeholder="Dirección de envío" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
+      <input id="cust-city" type="text" placeholder="Ciudad" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
+      <p id="form-error" class="hidden text-hg-orange text-xs"></p>
     </div>
   </div>
-</footer>
+
+  <div id="cart-footer" class="hidden border-t border-white/10 px-6 py-5">
+    <div id="checkout-error" class="hidden bg-hg-orange/15 border border-hg-orange text-hg-orange text-xs rounded-lg px-4 py-3 mb-4"></div>
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-white/70 text-sm">Total</span>
+      <span id="cart-total" class="text-white font-display text-xl">$42.000</span>
+    </div>
+    <button id="checkout-btn" class="btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base">
+      Pagar con Wompi
+    </button>
+    <p class="text-white/40 text-xs text-center mt-3">Pago seguro procesado por Wompi. Recibirás la confirmación de tu pedido por WhatsApp.</p>
+  </div>
+</aside>
+
+<script src="https://checkout.wompi.co/widget.js"></script>
+<script>
+function initCart() {
+  // Inyecta el ícono del carrito dentro del header compartido
+  const slot = document.getElementById("cart-icon-slot");
+  if (slot && !document.getElementById("cart-toggle")) {
+    slot.innerHTML =
+      '<button id="cart-toggle" aria-label="Abrir carrito" class="relative text-white hover:text-hg-orange transition-colors">' +
+      '<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' +
+      '<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>' +
+      '<path stroke-linecap="round" stroke-linejoin="round" d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>' +
+      '</svg>' +
+      '<span id="cart-count" class="hidden absolute -top-2 -right-2 bg-hg-orange text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>' +
+      '</button>';
+  }
+
+  const PRODUCT_PRICE = 42000; // COP
+  const WOMPI_PUBLIC_KEY = "pub_prod_58FlrwzbwOlj36yW9jYZN0MOX5eSzyJF";
+  const WHATSAPP_NUMBER = "573112961506";
+  // Wompi exige una URL https real (no funciona con file:// ni localhost).
+  // Cambia esto si tu dominio final es distinto.
+  const SITE_URL = "https://huargolab.com/";
+  const REDIRECT_URL =
+    window.location.protocol === "https:" ? window.location.href.split("#")[0] : SITE_URL;
+
+  let cart = { qty: 0 };
+
+  const fmt = (n) => "$" + n.toLocaleString("es-CO");
+
+  // Elements
+  const cartToggle = document.getElementById("cart-toggle");
+  const cartClose = document.getElementById("cart-close");
+  const cartOverlay = document.getElementById("cart-overlay");
+  const cartDrawer = document.getElementById("cart-drawer");
+  const cartCount = document.getElementById("cart-count");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartItem = document.getElementById("cart-item");
+  const cartQtyValue = document.getElementById("cart-qty-value");
+  const cartFooter = document.getElementById("cart-footer");
+  const cartTotal = document.getElementById("cart-total");
+  const checkoutForm = document.getElementById("checkout-form");
+  const formError = document.getElementById("form-error");
+
+  const qtyValue = document.getElementById("qty-value");
+  let selectedQty = 1;
+
+
+  function openDrawer() {
+    cartOverlay.classList.remove("hidden");
+    cartDrawer.classList.remove("translate-x-full");
+  }
+  function closeDrawer() {
+    cartOverlay.classList.add("hidden");
+    cartDrawer.classList.add("translate-x-full");
+  }
+  cartToggle.addEventListener("click", openDrawer);
+  cartClose.addEventListener("click", closeDrawer);
+  cartOverlay.addEventListener("click", closeDrawer);
+
+  // Product quantity selector (before adding to cart)
+  document.getElementById("qty-minus").addEventListener("click", () => {
+    selectedQty = Math.max(1, selectedQty - 1);
+    qtyValue.textContent = selectedQty;
+  });
+  document.getElementById("qty-plus").addEventListener("click", () => {
+    selectedQty = Math.min(10, selectedQty + 1);
+    qtyValue.textContent = selectedQty;
+  });
+
+  document.getElementById("add-to-cart").addEventListener("click", () => {
+    cart.qty += selectedQty;
+    renderCart();
+    openDrawer();
+  });
+
+  function renderCart() {
+    checkoutError.classList.add("hidden");
+    if (cart.qty > 0) {
+      cartEmpty.classList.add("hidden");
+      cartItem.classList.remove("hidden");
+      checkoutForm.classList.remove("hidden");
+      cartFooter.classList.remove("hidden");
+      cartQtyValue.textContent = cart.qty;
+      cartCount.textContent = cart.qty;
+      cartCount.classList.remove("hidden");
+      cartTotal.textContent = fmt(PRODUCT_PRICE * cart.qty);
+    } else {
+      cartEmpty.classList.remove("hidden");
+      cartItem.classList.add("hidden");
+      checkoutForm.classList.add("hidden");
+      cartFooter.classList.add("hidden");
+      cartCount.classList.add("hidden");
+    }
+  }
+
+  document.getElementById("cart-qty-minus").addEventListener("click", () => {
+    cart.qty = Math.max(0, cart.qty - 1);
+    renderCart();
+  });
+  document.getElementById("cart-qty-plus").addEventListener("click", () => {
+    cart.qty = Math.min(10, cart.qty + 1);
+    renderCart();
+  });
+  document.getElementById("cart-remove").addEventListener("click", () => {
+    cart.qty = 0;
+    renderCart();
+  });
+
+  const checkoutError = document.getElementById("checkout-error");
+  const checkoutBtn = document.getElementById("checkout-btn");
+
+  function showCheckoutError(msg) {
+    checkoutError.textContent = msg;
+    checkoutError.classList.remove("hidden");
+  }
+  function hideCheckoutError() {
+    checkoutError.classList.add("hidden");
+  }
+
+  document.getElementById("checkout-btn").addEventListener("click", () => {
+    hideCheckoutError();
+    const name = document.getElementById("cust-name").value.trim();
+    const email = document.getElementById("cust-email").value.trim();
+    const phone = document.getElementById("cust-phone").value.trim();
+    const address = document.getElementById("cust-address").value.trim();
+    const city = document.getElementById("cust-city").value.trim();
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!name || !email || !phone || !address || !city) {
+      formError.textContent = "Completa todos los campos de envío antes de pagar.";
+      formError.classList.remove("hidden");
+      return;
+    }
+    if (!emailPattern.test(email)) {
+      formError.textContent = "Ingresa un correo electrónico válido.";
+      formError.classList.remove("hidden");
+      return;
+    }
+    formError.classList.add("hidden");
+
+    const total = PRODUCT_PRICE * cart.qty;
+    const reference = "HG-" + Date.now();
+
+    let checkout;
+    try {
+      checkout = new WidgetCheckout({
+        currency: "COP",
+        amountInCents: total * 100,
+        reference: reference,
+        publicKey: WOMPI_PUBLIC_KEY,
+        redirectUrl: REDIRECT_URL,
+        customerData: {
+          email: email,
+          fullName: name,
+          phoneNumber: phone,
+          phoneNumberPrefix: "+57",
+        },
+      });
+    } catch (err) {
+      showCheckoutError(
+        "No pudimos abrir la pasarela de pago. Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
+      );
+      return;
+    }
+
+    checkoutBtn.disabled = true;
+    checkoutBtn.textContent = "Abriendo pago...";
+
+    try {
+      checkout.open(function (result) {
+        checkoutBtn.disabled = false;
+        checkoutBtn.textContent = "Pagar con Wompi";
+        const transaction = result && result.transaction;
+        if (transaction && transaction.status === "APPROVED") {
+          const msg =
+            "¡Nuevo pedido pagado! 🎉%0A" +
+            "Producto: Gel Lubricante Íntimo Premium x" + cart.qty + "%0A" +
+            "Total: " + fmt(total) + "%0A" +
+            "Cliente: " + name + "%0A" +
+            "Correo: " + email + "%0A" +
+            "Teléfono: " + phone + "%0A" +
+            "Dirección: " + address + ", " + city + "%0A" +
+            "Referencia Wompi: " + reference + "%0A" +
+            "Estado: " + transaction.status;
+          window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg, "_blank");
+          cart.qty = 0;
+          renderCart();
+          closeDrawer();
+          alert("¡Pago aprobado! Te contactaremos pronto para confirmar tu envío.");
+        } else if (transaction) {
+          showCheckoutError(
+            "Tu pago no se completó (estado: " + transaction.status + "). Puedes intentarlo de nuevo o escribirnos por WhatsApp."
+          );
+        } else {
+          showCheckoutError("Cerraste la ventana de pago antes de terminar. Puedes intentarlo de nuevo cuando quieras.");
+        }
+      });
+    } catch (err) {
+      checkoutBtn.disabled = false;
+      checkoutBtn.textContent = "Pagar con Wompi";
+      showCheckoutError(
+        "Ocurrió un problema al iniciar el pago. Intenta de nuevo en unos segundos o escríbenos por WhatsApp si sigue fallando."
+      );
+    }
+  });
+
+  renderCart();
+}
+
+document.addEventListener("partialsLoaded", initCart);
+</script>
 
 </body>
 </html>
