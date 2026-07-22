@@ -485,6 +485,7 @@ function initCart() {
       if (!sigRes.ok || !sigData.signature) {
         throw new Error(sigData.error || "No se pudo generar la firma de pago.");
       }
+      console.log("Wompi signature debug:", sigData.debug);
       signature = sigData.signature;
     } catch (err) {
       checkoutBtn.disabled = false;

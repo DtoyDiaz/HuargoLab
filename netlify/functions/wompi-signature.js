@@ -33,7 +33,7 @@ exports.handler = async function (event) {
     };
   }
 
-  const secret = process.env.WOMPI_INTEGRITY_SECRET;
+  let secret = process.env.WOMPI_INTEGRITY_SECRET;
   if (!secret) {
     return {
       statusCode: 500,
@@ -44,6 +44,11 @@ exports.handler = async function (event) {
     };
   }
 
+  // Por si el valor se copió con espacios o saltos de línea accidentales.
+  const rawLength = secret.length;
+  secret = secret.trim();
+  const trimmedLength = secret.length;
+
   // El orden importa: reference + amountInCents + currency + secreto
   const concatenated = `${reference}${amountInCents}${currency}${secret}`;
   const signature = crypto.createHash("sha256").update(concatenated).digest("hex");
@@ -51,6 +56,19 @@ exports.handler = async function (event) {
   return {
     statusCode: 200,
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ signature }),
+    body: JSON.stringify({
+      signature,
+      // Info de diagnóstico segura (no expone el secreto en sí):
+      debug: {
+        secretRawLength: rawLength,
+        secretTrimmedLength: trimmedLength,
+        hadExtraWhitespace: rawLength !== trimmedLength,
+        secretFirst2: secret.slice(0, 2),
+        secretLast2: secret.slice(-2),
+        referenceUsed: reference,
+        amountInCentsUsed: amountInCents,
+        currencyUsed: currency,
+      },
+    }),
   };
 };
