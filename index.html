@@ -489,8 +489,11 @@ function initCart() {
     } catch (err) {
       checkoutBtn.disabled = false;
       checkoutBtn.textContent = "Pagar con Wompi";
+      console.error("Error obteniendo firma de Wompi:", err);
       showCheckoutError(
-        "No pudimos preparar el pago de forma segura. Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
+        "No pudimos preparar el pago de forma segura" +
+          (err && err.message ? " (" + err.message + ")" : "") +
+          ". Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
       );
       return;
     }
@@ -515,8 +518,11 @@ function initCart() {
     } catch (err) {
       checkoutBtn.disabled = false;
       checkoutBtn.textContent = "Pagar con Wompi";
+      console.error("Error creando WidgetCheckout de Wompi:", err);
       showCheckoutError(
-        "No pudimos abrir la pasarela de pago. Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
+        "No pudimos abrir la pasarela de pago" +
+          (err && err.message ? " (" + err.message + ")" : "") +
+          ". Verifica tu conexión e inténtalo de nuevo. Si el problema continúa, contáctanos por WhatsApp."
       );
       return;
     }
