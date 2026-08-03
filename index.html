@@ -39,23 +39,6 @@
   body { background-color: #121212; font-family: 'Inter', sans-serif; }
   .font-display { font-family: 'Anton', sans-serif; letter-spacing: 0.01em; }
 
-  .hero-img-wrap {
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-img-wrap::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background: linear-gradient(to right, #121212 0%, rgba(18,18,18,0.0) 35%);
-  }
-  @media (max-width: 1023px) {
-    .hero-img-wrap::before {
-      background: linear-gradient(to top, #121212 5%, rgba(18,18,18,0.05) 45%);
-    }
-  }
-
   .btn-primary {
     background-color: #FF4F1E;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -130,11 +113,21 @@
 <main>
 
   <!-- ============ HERO ============ -->
-  <section class="w-full min-h-[80vh] lg:min-h-[90vh] bg-hg-bg flex flex-col lg:flex-row">
+  <section class="relative w-full min-h-[80vh] lg:min-h-[90vh] overflow-hidden">
 
-    <!-- Columna izquierda: contenido -->
-    <div class="w-full lg:w-1/2 flex items-center order-2 lg:order-1 px-6 lg:px-10 py-12 lg:py-0">
-      <div class="max-w-xl mx-auto lg:mx-0 lg:ml-auto lg:mr-12 text-center lg:text-left">
+    <!-- Imagen de fondo, a todo el ancho -->
+    <img
+      src="banner-home.png"
+      alt="Tubo de Gel Lubricante Íntimo Premium HuargoLab"
+      class="absolute inset-0 w-full h-full object-cover object-[75%_center] lg:object-right"
+    >
+
+    <!-- Degradado oscuro: opaco donde va el texto, transparente hacia la imagen -->
+    <div class="absolute inset-0 bg-gradient-to-t from-hg-bg via-hg-bg/80 to-hg-bg/10 lg:bg-gradient-to-r lg:from-hg-bg lg:via-hg-bg/85 lg:to-hg-bg/10"></div>
+
+    <!-- Contenido -->
+    <div class="relative z-10 max-w-7xl mx-auto min-h-[80vh] lg:min-h-[90vh] flex items-end lg:items-center px-6 lg:px-10 py-12 lg:py-0">
+      <div class="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
 
         <!-- Badge -->
         <span class="inline-flex items-center gap-2 border border-hg-orange text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
@@ -169,24 +162,6 @@
           <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Textura sedosa 🌸</span>
         </div>
 
-      </div>
-    </div>
-
-    <!-- Columna derecha: visual -->
-    <div class="w-full lg:w-1/2 order-1 lg:order-2 relative h-[45vh] lg:h-auto">
-      <div class="hero-img-wrap w-full h-full">
-        <!--
-          PLACEHOLDER: reemplazar por foto final.
-          Recomendado: pack shot de estudio del producto (fondo neutro,
-          o una mano aplicando el gel) en vez de una escena con modelo
-          semidesnudo, para mantener el hero confiable y no sesgar el
-          público a un solo género. Ver nota de la revisión anterior.
-        -->
-        <img
-          src="banner-home.png"
-          alt="Tubo de Gel Lubricante Íntimo Premium HuargoLab"
-          class="w-full h-full object-cover object-center lg:object-right"
-        >
       </div>
     </div>
 
