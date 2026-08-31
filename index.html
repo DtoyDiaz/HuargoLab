@@ -130,22 +130,67 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
 
 <main>
 
-  <!-- ============ HERO ============ -->
-  <section class="relative w-full min-h-[80vh] lg:min-h-[90vh] overflow-hidden">
+  <!-- ============ HERO — MÓVIL (imagen con altura fija + texto debajo) ============ -->
+  <section class="lg:hidden w-full bg-hg-bg">
+    <img
+      src="banner-home.png"
+      alt="Tubo de Gel Lubricante Íntimo Premium HuargoLab"
+      class="w-full h-64 sm:h-80 object-cover object-[65%_center]"
+    >
+    <div class="px-6 py-10 text-center">
+
+      <!-- Badge -->
+      <span class="inline-flex items-center gap-2 border border-hg-orange text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
+        📦 Envíos discretos · Toda Colombia
+      </span>
+
+      <!-- Título -->
+      <h1 class="font-display text-4xl sm:text-5xl text-hg-orange leading-[1.25] mb-5">
+        GEL LUBRICANTE<br>ÍNTIMO PREMIUM
+      </h1>
+
+      <!-- Subtítulo -->
+      <p class="text-base text-white/90 leading-relaxed mb-8">
+        Para ti, tu pareja y tus momentos hot: más placer, cero fricción,
+        compatible con preservativo y juguetes.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col gap-4 justify-center mb-8">
+        <a href="#comprar" class="btn-primary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base">
+          Quiero mi lubricante
+        </a>
+        <a href="https://wa.me/573112961506" target="_blank" rel="noopener" class="btn-secondary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base">
+          Resolver mis dudas
+        </a>
+      </div>
+
+      <!-- Pastillas de beneficios -->
+      <div class="flex flex-wrap gap-3 justify-center">
+        <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Base de agua 💧</span>
+        <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Fórmula segura 🧪</span>
+        <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Textura sedosa 🌸</span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ HERO — DESKTOP (imagen a todo el ancho, texto superpuesto) ============ -->
+  <section class="hidden lg:block relative w-full min-h-[90vh] overflow-hidden">
 
     <!-- Imagen de fondo, a todo el ancho -->
     <img
       src="banner-home.png"
       alt="Tubo de Gel Lubricante Íntimo Premium HuargoLab"
-      class="absolute inset-0 w-full h-full object-cover object-[75%_center] lg:object-right"
+      class="absolute inset-0 w-full h-full object-cover object-right"
     >
 
     <!-- Degradado oscuro: opaco donde va el texto, transparente hacia la imagen -->
-    <div class="absolute inset-0 bg-gradient-to-t from-hg-bg via-hg-bg/80 to-hg-bg/10 lg:bg-gradient-to-r lg:from-hg-bg lg:via-hg-bg/85 lg:to-hg-bg/10"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-hg-bg via-hg-bg/85 to-hg-bg/10"></div>
 
     <!-- Contenido -->
-    <div class="relative z-10 max-w-7xl mx-auto min-h-[80vh] lg:min-h-[90vh] flex items-start lg:items-center px-6 lg:px-10 pt-40 pb-12 lg:pt-0 lg:pb-0">
-      <div class="max-w-xl mx-auto lg:mx-0 text-center lg:text-left">
+    <div class="relative z-10 max-w-7xl mx-auto min-h-[90vh] flex items-center px-10">
+      <div class="max-w-xl text-left">
 
         <!-- Badge -->
         <span class="inline-flex items-center gap-2 border border-hg-orange text-white text-sm font-medium px-4 py-2 rounded-full mb-6">
@@ -153,18 +198,18 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
         </span>
 
         <!-- Título -->
-        <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl text-hg-orange leading-[1.25] mb-5">
+        <h1 class="font-display text-6xl text-hg-orange leading-[1.25] mb-5">
           GEL LUBRICANTE<br>ÍNTIMO PREMIUM
         </h1>
 
         <!-- Subtítulo -->
-        <p class="text-base sm:text-lg text-white/90 leading-relaxed mb-8">
+        <p class="text-lg text-white/90 leading-relaxed mb-8">
           Para ti, tu pareja y tus momentos hot: más placer, cero fricción,
           compatible con preservativo y juguetes.
         </p>
 
         <!-- CTAs -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+        <div class="flex flex-row gap-4 justify-start mb-8">
           <a href="#comprar" class="btn-primary inline-flex items-center justify-center gap-2 text-white font-semibold px-7 py-4 rounded-xl text-base">
             Quiero mi lubricante
           </a>
@@ -174,7 +219,7 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
         </div>
 
         <!-- Pastillas de beneficios -->
-        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+        <div class="flex flex-wrap gap-3 justify-start">
           <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Base de agua 💧</span>
           <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Fórmula segura 🧪</span>
           <span class="pill-benefit bg-hg-purple text-white text-sm font-medium px-5 py-2.5 rounded-full">Textura sedosa 🌸</span>
