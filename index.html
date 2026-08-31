@@ -102,6 +102,24 @@
     * { transition: none !important; }
   }
 </style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '25780456441631629');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 
 <body class="bg-hg-bg text-white">
@@ -167,32 +185,60 @@
 
   </section>
 
-  <!-- ============ TIENDA / PRODUCTO ============ -->
+  <!-- ============ TIENDA / PRODUCTOS ============ -->
   <section id="tienda" class="w-full bg-hg-bg">
     <div class="max-w-6xl mx-auto px-6 lg:px-10 py-16" id="comprar">
       <h2 class="font-display text-2xl sm:text-3xl text-white text-center mb-10">
-        NUESTRO <span class="text-hg-orange">PRODUCTO</span>
+        NUESTROS <span class="text-hg-orange">PRODUCTOS</span>
       </h2>
 
-      <div class="max-w-md mx-auto bg-hg-surface border border-white/10 rounded-2xl p-7 text-center">
-        <img
-          src="imagen-producto.png"
-          alt="Gel Lubricante Íntimo Premium HuargoLab"
-          class="w-full h-56 object-contain mb-6"
-        >
-        <h3 class="font-display text-xl text-white mb-2">GEL LUBRICANTE ÍNTIMO PREMIUM</h3>
-        <p class="text-sm text-white/70 mb-4">120 ml de contenido · No mancha · Compatible con preservativos y juguetes · Ayuda a que las relaciones íntimas sean más cómodas</p>
-        <p class="font-display text-2xl text-hg-orange mb-6" id="product-price-label">$42.000 COP</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
 
-        <div class="flex items-center justify-center gap-4 mb-6">
-          <button id="qty-minus" class="w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" aria-label="Disminuir cantidad">−</button>
-          <span id="qty-value" class="text-white font-semibold w-6 text-center">1</span>
-          <button id="qty-plus" class="w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" aria-label="Aumentar cantidad">+</button>
+        <!-- Producto 1: Unidad individual -->
+        <div class="bg-hg-surface border border-white/10 rounded-2xl p-7 text-center flex flex-col">
+          <img
+            src="imagen-producto.png"
+            alt="Gel Lubricante Íntimo Premium HuargoLab"
+            class="w-full h-56 object-contain mb-6"
+          >
+          <h3 class="font-display text-xl text-white mb-2">GEL LUBRICANTE ÍNTIMO PREMIUM</h3>
+          <p class="text-sm text-white/70 mb-4 flex-1">120 ml de contenido · No mancha · Compatible con preservativos y juguetes · Ayuda a que las relaciones íntimas sean más cómodas</p>
+          <p class="font-display text-2xl text-hg-orange mb-6">$45.000 COP</p>
+
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <button class="qty-minus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-1" aria-label="Disminuir cantidad">−</button>
+            <span class="qty-value text-white font-semibold w-6 text-center" data-product="gel-1">1</span>
+            <button class="qty-plus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-1" aria-label="Aumentar cantidad">+</button>
+          </div>
+
+          <button class="add-to-cart btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base" data-product="gel-1">
+            Añadir al carrito
+          </button>
         </div>
 
-        <button id="add-to-cart" class="btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base">
-          Añadir al carrito
-        </button>
+        <!-- Producto 2: PROMO x2 unidades -->
+        <div class="bg-hg-surface border border-hg-orange rounded-2xl p-7 text-center flex flex-col relative">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-hg-orange text-white text-xs font-bold px-4 py-1 rounded-full">PROMO</span>
+          <img
+            src="imagen-producto.png"
+            alt="Promo 2 unidades Gel Lubricante Íntimo Premium HuargoLab"
+            class="w-full h-56 object-contain mb-6 mt-2"
+          >
+          <h3 class="font-display text-xl text-white mb-2">PROMO GEL LUBRICANTE ÍNTIMO PREMIUM x2</h3>
+          <p class="text-sm text-white/70 mb-4 flex-1">2 unidades · 120 ml de contenido cada una · Más contenido para más placer</p>
+          <p class="font-display text-2xl text-hg-orange mb-6">$82.000 COP</p>
+
+          <div class="flex items-center justify-center gap-4 mb-6">
+            <button class="qty-minus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-promo2" aria-label="Disminuir cantidad">−</button>
+            <span class="qty-value text-white font-semibold w-6 text-center" data-product="gel-promo2">1</span>
+            <button class="qty-plus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-promo2" aria-label="Aumentar cantidad">+</button>
+          </div>
+
+          <button class="add-to-cart btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base" data-product="gel-promo2">
+            Añadir al carrito
+          </button>
+        </div>
+
       </div>
     </div>
   </section>
@@ -260,36 +306,36 @@
   <div class="flex-1 overflow-y-auto px-6 py-5">
     <div id="cart-empty" class="text-white/60 text-sm text-center mt-10">Tu carrito está vacío.</div>
 
-    <div id="cart-item" class="hidden flex items-start gap-4 border-b border-white/10 pb-5 mb-5">
-      <img src="imagen-producto.png" alt="Gel Lubricante Íntimo Premium" class="w-16 h-16 object-contain bg-hg-bg rounded-lg border border-white/10">
-      <div class="flex-1">
-        <p class="text-white font-semibold text-sm mb-1">Gel Lubricante Íntimo Premium</p>
-        <p class="text-white/60 text-xs mb-2" id="cart-item-price">$42.000 c/u</p>
-        <div class="flex items-center gap-3">
-          <button id="cart-qty-minus" class="w-7 h-7 rounded-full bg-hg-bg border border-white/20 text-white text-sm hover:border-hg-orange transition-colors">−</button>
-          <span id="cart-qty-value" class="text-white text-sm w-4 text-center">1</span>
-          <button id="cart-qty-plus" class="w-7 h-7 rounded-full bg-hg-bg border border-white/20 text-white text-sm hover:border-hg-orange transition-colors">+</button>
-          <button id="cart-remove" class="ml-auto text-white/50 hover:text-hg-orange text-xs underline">Quitar</button>
-        </div>
-      </div>
-    </div>
+    <div id="cart-items-list" class="space-y-4 mb-2"></div>
 
-    <div id="checkout-form" class="hidden space-y-3">
+    <div id="checkout-form" class="hidden space-y-3 pt-4 border-t border-white/10">
       <p class="text-white text-sm font-semibold mb-2">Datos de envío</p>
       <input id="cust-name" type="text" placeholder="Nombre completo" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
       <input id="cust-email" type="email" placeholder="Correo electrónico" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
       <input id="cust-phone" type="tel" placeholder="Teléfono / WhatsApp (sin indicativo)" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
       <input id="cust-address" type="text" placeholder="Dirección de envío" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
       <input id="cust-city" type="text" placeholder="Ciudad" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
+      <select id="cust-department" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-hg-orange">
+        <option value="" disabled selected>Selecciona tu departamento</option>
+      </select>
+      <p id="coverage-warning" class="hidden bg-hg-orange/15 border border-hg-orange text-hg-orange text-xs rounded-lg px-4 py-3">Lamentablemente no tenemos cobertura de envío a tu departamento en este momento.</p>
       <p id="form-error" class="hidden text-hg-orange text-xs"></p>
     </div>
   </div>
 
   <div id="cart-footer" class="hidden border-t border-white/10 px-6 py-5">
     <div id="checkout-error" class="hidden bg-hg-orange/15 border border-hg-orange text-hg-orange text-xs rounded-lg px-4 py-3 mb-4"></div>
-    <div class="flex items-center justify-between mb-4">
+    <div class="flex items-center justify-between mb-1 text-sm">
+      <span class="text-white/70">Subtotal</span>
+      <span id="cart-subtotal" class="text-white">$0</span>
+    </div>
+    <div class="flex items-center justify-between mb-4 text-sm">
+      <span class="text-white/70">Envío</span>
+      <span id="cart-shipping" class="text-white">Selecciona tu departamento</span>
+    </div>
+    <div class="flex items-center justify-between mb-4 border-t border-white/10 pt-3">
       <span class="text-white/70 text-sm">Total</span>
-      <span id="cart-total" class="text-white font-display text-xl">$42.000</span>
+      <span id="cart-total" class="text-white font-display text-xl">$0</span>
     </div>
     <button id="checkout-btn" class="btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base">
       Pagar con Wompi
@@ -314,18 +360,60 @@ function initCart() {
       '</button>';
   }
 
-  const PRODUCT_PRICE = 42000; // COP
+  // ---------- Catálogo de productos ----------
+  const PRODUCTS = {
+    "gel-1": {
+      name: "Gel Lubricante Íntimo Premium",
+      price: 45000,
+      image: "imagen-producto.png",
+    },
+    "gel-promo2": {
+      name: "PROMO Gel Lubricante Íntimo Premium x2",
+      price: 82000,
+      image: "imagen-producto.png",
+    },
+  };
+
+  // ---------- Departamentos y reglas de envío ----------
+  const FREE_DEPARTMENTS = ["Bogotá D.C."];
+  const BLOCKED_DEPARTMENTS = [
+    "Amazonas", "Vaupés", "Guainía", "Vichada", "Arauca",
+    "Casanare", "Caquetá", "Putumayo", "San Andrés y Providencia", "La Guajira",
+  ];
+  const STANDARD_SHIPPING_FEE = 12000;
+  const ALL_DEPARTMENTS = [
+    "Bogotá D.C.", "Amazonas", "Antioquia", "Arauca", "Atlántico", "Bolívar",
+    "Boyacá", "Caldas", "Caquetá", "Casanare", "Cauca", "Cesar", "Chocó",
+    "Córdoba", "Cundinamarca", "Guainía", "Guaviare", "Huila", "La Guajira",
+    "Magdalena", "Meta", "Nariño", "Norte de Santander", "Putumayo", "Quindío",
+    "Risaralda", "San Andrés y Providencia", "Santander", "Sucre", "Tolima",
+    "Valle del Cauca", "Vaupés", "Vichada",
+  ];
+
   const WOMPI_PUBLIC_KEY = "pub_prod_58FlrwzbwOlj36yW9jYZN0MOX5eSzyJF";
   const WHATSAPP_NUMBER = "573112961506";
   // Wompi exige una URL https real (no funciona con file:// ni localhost).
-  // Cambia esto si tu dominio final es distinto.
   const SITE_URL = "https://huargolab.com/";
   const REDIRECT_URL =
     window.location.protocol === "https:" ? window.location.href.split("#")[0] : SITE_URL;
 
-  let cart = { qty: 0 };
+  let cart = {}; // { productId: qty }
+  const selectedQtyByProduct = { "gel-1": 1, "gel-promo2": 1 };
 
   const fmt = (n) => "$" + n.toLocaleString("es-CO");
+
+  function cartSubtotal() {
+    return Object.keys(cart).reduce((sum, id) => sum + PRODUCTS[id].price * cart[id], 0);
+  }
+  function cartItemCount() {
+    return Object.values(cart).reduce((sum, qty) => sum + qty, 0);
+  }
+  function getShippingInfo(department) {
+    if (!department) return { fee: null, blocked: false };
+    if (FREE_DEPARTMENTS.includes(department)) return { fee: 0, blocked: false };
+    if (BLOCKED_DEPARTMENTS.includes(department)) return { fee: null, blocked: true };
+    return { fee: STANDARD_SHIPPING_FEE, blocked: false };
+  }
 
   // Elements
   const cartToggle = document.getElementById("cart-toggle");
@@ -334,16 +422,25 @@ function initCart() {
   const cartDrawer = document.getElementById("cart-drawer");
   const cartCount = document.getElementById("cart-count");
   const cartEmpty = document.getElementById("cart-empty");
-  const cartItem = document.getElementById("cart-item");
-  const cartQtyValue = document.getElementById("cart-qty-value");
+  const cartItemsList = document.getElementById("cart-items-list");
   const cartFooter = document.getElementById("cart-footer");
+  const cartSubtotalEl = document.getElementById("cart-subtotal");
+  const cartShippingEl = document.getElementById("cart-shipping");
   const cartTotal = document.getElementById("cart-total");
   const checkoutForm = document.getElementById("checkout-form");
   const formError = document.getElementById("form-error");
+  const coverageWarning = document.getElementById("coverage-warning");
+  const departmentSelect = document.getElementById("cust-department");
+  const checkoutError = document.getElementById("checkout-error");
+  const checkoutBtn = document.getElementById("checkout-btn");
 
-  const qtyValue = document.getElementById("qty-value");
-  let selectedQty = 1;
-
+  // Llena el selector de departamentos
+  ALL_DEPARTMENTS.slice().sort((a, b) => a.localeCompare(b, "es")).forEach((dep) => {
+    const opt = document.createElement("option");
+    opt.value = dep;
+    opt.textContent = dep;
+    departmentSelect.appendChild(opt);
+  });
 
   function openDrawer() {
     cartOverlay.classList.remove("hidden");
@@ -357,57 +454,118 @@ function initCart() {
   cartClose.addEventListener("click", closeDrawer);
   cartOverlay.addEventListener("click", closeDrawer);
 
-  // Product quantity selector (before adding to cart)
-  document.getElementById("qty-minus").addEventListener("click", () => {
-    selectedQty = Math.max(1, selectedQty - 1);
-    qtyValue.textContent = selectedQty;
+  // Selectores de cantidad en las tarjetas de producto (antes de añadir)
+  document.querySelectorAll(".qty-minus").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.product;
+      selectedQtyByProduct[id] = Math.max(1, selectedQtyByProduct[id] - 1);
+      document.querySelector('.qty-value[data-product="' + id + '"]').textContent = selectedQtyByProduct[id];
+    });
   });
-  document.getElementById("qty-plus").addEventListener("click", () => {
-    selectedQty = Math.min(10, selectedQty + 1);
-    qtyValue.textContent = selectedQty;
+  document.querySelectorAll(".qty-plus").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.product;
+      selectedQtyByProduct[id] = Math.min(10, selectedQtyByProduct[id] + 1);
+      document.querySelector('.qty-value[data-product="' + id + '"]').textContent = selectedQtyByProduct[id];
+    });
+  });
+  document.querySelectorAll(".add-to-cart").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.product;
+      cart[id] = (cart[id] || 0) + selectedQtyByProduct[id];
+      renderCart();
+      openDrawer();
+    });
   });
 
-  document.getElementById("add-to-cart").addEventListener("click", () => {
-    cart.qty += selectedQty;
-    renderCart();
-    openDrawer();
-  });
+  function updateShippingDisplay() {
+    const dep = departmentSelect.value;
+    const info = getShippingInfo(dep);
+    checkoutBtn.disabled = false;
+
+    if (!dep) {
+      cartShippingEl.textContent = "Selecciona tu departamento";
+      coverageWarning.classList.add("hidden");
+      checkoutBtn.disabled = true;
+    } else if (info.blocked) {
+      cartShippingEl.textContent = "Sin cobertura";
+      coverageWarning.classList.remove("hidden");
+      checkoutBtn.disabled = true;
+    } else {
+      coverageWarning.classList.add("hidden");
+      cartShippingEl.textContent = info.fee === 0 ? "Gratis" : fmt(info.fee);
+    }
+
+    const subtotal = cartSubtotal();
+    const shippingFee = info.fee || 0;
+    cartSubtotalEl.textContent = fmt(subtotal);
+    cartTotal.textContent = fmt(subtotal + (info.blocked ? 0 : shippingFee));
+  }
+  departmentSelect.addEventListener("change", updateShippingDisplay);
 
   function renderCart() {
     checkoutError.classList.add("hidden");
-    if (cart.qty > 0) {
+    const ids = Object.keys(cart).filter((id) => cart[id] > 0);
+
+    if (ids.length > 0) {
       cartEmpty.classList.add("hidden");
-      cartItem.classList.remove("hidden");
       checkoutForm.classList.remove("hidden");
       cartFooter.classList.remove("hidden");
-      cartQtyValue.textContent = cart.qty;
-      cartCount.textContent = cart.qty;
+      cartCount.textContent = cartItemCount();
       cartCount.classList.remove("hidden");
-      cartTotal.textContent = fmt(PRODUCT_PRICE * cart.qty);
+
+      cartItemsList.innerHTML = "";
+      ids.forEach((id) => {
+        const product = PRODUCTS[id];
+        const qty = cart[id];
+        const row = document.createElement("div");
+        row.className = "flex items-start gap-4 border-b border-white/10 pb-4";
+        row.innerHTML =
+          '<img src="' + product.image + '" alt="' + product.name + '" class="w-16 h-16 object-contain bg-hg-bg rounded-lg border border-white/10">' +
+          '<div class="flex-1">' +
+            '<p class="text-white font-semibold text-sm mb-1">' + product.name + '</p>' +
+            '<p class="text-white/60 text-xs mb-2">' + fmt(product.price) + ' c/u</p>' +
+            '<div class="flex items-center gap-3">' +
+              '<button class="cart-qty-minus w-7 h-7 rounded-full bg-hg-bg border border-white/20 text-white text-sm hover:border-hg-orange transition-colors" data-product="' + id + '">−</button>' +
+              '<span class="text-white text-sm w-4 text-center">' + qty + '</span>' +
+              '<button class="cart-qty-plus w-7 h-7 rounded-full bg-hg-bg border border-white/20 text-white text-sm hover:border-hg-orange transition-colors" data-product="' + id + '">+</button>' +
+              '<button class="cart-remove ml-auto text-white/50 hover:text-hg-orange text-xs underline" data-product="' + id + '">Quitar</button>' +
+            '</div>' +
+          '</div>';
+        cartItemsList.appendChild(row);
+      });
+
+      cartItemsList.querySelectorAll(".cart-qty-minus").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.product;
+          cart[id] = Math.max(0, cart[id] - 1);
+          renderCart();
+        });
+      });
+      cartItemsList.querySelectorAll(".cart-qty-plus").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.product;
+          cart[id] = Math.min(10, cart[id] + 1);
+          renderCart();
+        });
+      });
+      cartItemsList.querySelectorAll(".cart-remove").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const id = btn.dataset.product;
+          delete cart[id];
+          renderCart();
+        });
+      });
+
+      updateShippingDisplay();
     } else {
       cartEmpty.classList.remove("hidden");
-      cartItem.classList.add("hidden");
+      cartItemsList.innerHTML = "";
       checkoutForm.classList.add("hidden");
       cartFooter.classList.add("hidden");
       cartCount.classList.add("hidden");
     }
   }
-
-  document.getElementById("cart-qty-minus").addEventListener("click", () => {
-    cart.qty = Math.max(0, cart.qty - 1);
-    renderCart();
-  });
-  document.getElementById("cart-qty-plus").addEventListener("click", () => {
-    cart.qty = Math.min(10, cart.qty + 1);
-    renderCart();
-  });
-  document.getElementById("cart-remove").addEventListener("click", () => {
-    cart.qty = 0;
-    renderCart();
-  });
-
-  const checkoutError = document.getElementById("checkout-error");
-  const checkoutBtn = document.getElementById("checkout-btn");
 
   function showCheckoutError(msg) {
     checkoutError.textContent = msg;
@@ -417,16 +575,17 @@ function initCart() {
     checkoutError.classList.add("hidden");
   }
 
-  document.getElementById("checkout-btn").addEventListener("click", async () => {
+  checkoutBtn.addEventListener("click", async () => {
     hideCheckoutError();
     const name = document.getElementById("cust-name").value.trim();
     const email = document.getElementById("cust-email").value.trim();
     const phone = document.getElementById("cust-phone").value.trim();
     const address = document.getElementById("cust-address").value.trim();
     const city = document.getElementById("cust-city").value.trim();
+    const department = departmentSelect.value;
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!name || !email || !phone || !address || !city) {
+    if (!name || !email || !phone || !address || !city || !department) {
       formError.textContent = "Completa todos los campos de envío antes de pagar.";
       formError.classList.remove("hidden");
       return;
@@ -436,17 +595,24 @@ function initCart() {
       formError.classList.remove("hidden");
       return;
     }
+    const shippingInfo = getShippingInfo(department);
+    if (shippingInfo.blocked) {
+      formError.textContent = "Lamentablemente no tenemos cobertura de envío a tu departamento en este momento.";
+      formError.classList.remove("hidden");
+      return;
+    }
     formError.classList.add("hidden");
 
-    const total = PRODUCT_PRICE * cart.qty;
+    const subtotal = cartSubtotal();
+    const shippingFee = shippingInfo.fee || 0;
+    const total = subtotal + shippingFee;
     const amountInCents = total * 100;
     const reference = "HG-" + Date.now();
 
     checkoutBtn.disabled = true;
     checkoutBtn.textContent = "Preparando pago seguro...";
 
-    // 1. Pide la firma de integridad a la función serverless (el secreto
-    //    nunca viaja al navegador, solo el resultado ya calculado).
+    // 1. Pide la firma de integridad a la función serverless.
     let signature;
     try {
       const sigRes = await fetch("/.netlify/functions/wompi-signature", {
@@ -508,18 +674,24 @@ function initCart() {
         checkoutBtn.textContent = "Pagar con Wompi";
         const transaction = result && result.transaction;
         if (transaction && transaction.status === "APPROVED") {
+          const itemsText = Object.keys(cart)
+            .filter((id) => cart[id] > 0)
+            .map((id) => PRODUCTS[id].name + " x" + cart[id])
+            .join(", ");
           const msg =
             "¡Nuevo pedido pagado! 🎉%0A" +
-            "Producto: Gel Lubricante Íntimo Premium x" + cart.qty + "%0A" +
+            "Productos: " + itemsText + "%0A" +
+            "Subtotal: " + fmt(subtotal) + "%0A" +
+            "Envío: " + (shippingFee === 0 ? "Gratis" : fmt(shippingFee)) + "%0A" +
             "Total: " + fmt(total) + "%0A" +
             "Cliente: " + name + "%0A" +
             "Correo: " + email + "%0A" +
             "Teléfono: " + phone + "%0A" +
-            "Dirección: " + address + ", " + city + "%0A" +
+            "Dirección: " + address + ", " + city + ", " + department + "%0A" +
             "Referencia Wompi: " + reference + "%0A" +
             "Estado: " + transaction.status;
           window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + msg, "_blank");
-          cart.qty = 0;
+          cart = {};
           renderCart();
           closeDrawer();
           alert("¡Pago aprobado! Te contactaremos pronto para confirmar tu envío.");
