@@ -230,7 +230,7 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
           <p class="text-sm text-white/70 mb-4 flex-1">120 ml de contenido · No mancha · Compatible con preservativos y juguetes · Ayuda a que las relaciones íntimas sean más cómodas</p>
           <p class="font-display text-2xl text-hg-orange mb-6">$45.000 COP</p>
 
-          <div class="flex items-center justify-center gap-4 mb-6">
+          <div class="qty-controls flex items-center justify-center gap-4 mb-6">
             <button class="qty-minus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-1" aria-label="Disminuir cantidad">−</button>
             <span class="qty-value text-white font-semibold w-6 text-center" data-product="gel-1">1</span>
             <button class="qty-plus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-1" aria-label="Aumentar cantidad">+</button>
@@ -239,6 +239,9 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
           <button class="add-to-cart btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base" data-product="gel-1">
             Añadir al carrito
           </button>
+          <p class="out-of-stock-label hidden bg-hg-bg border border-white/20 text-white/60 font-semibold px-7 py-4 rounded-xl text-base" data-product="gel-1">
+            Agotado
+          </p>
         </div>
 
         <!-- Producto 2: PROMO x2 unidades -->
@@ -253,7 +256,7 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
           <p class="text-sm text-white/70 mb-4 flex-1">2 unidades · 120 ml de contenido cada una · Más contenido para más placer</p>
           <p class="font-display text-2xl text-hg-orange mb-6">$82.000 COP</p>
 
-          <div class="flex items-center justify-center gap-4 mb-6">
+          <div class="qty-controls flex items-center justify-center gap-4 mb-6">
             <button class="qty-minus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-promo2" aria-label="Disminuir cantidad">−</button>
             <span class="qty-value text-white font-semibold w-6 text-center" data-product="gel-promo2">1</span>
             <button class="qty-plus w-9 h-9 rounded-full bg-hg-bg border border-white/20 text-white text-lg hover:border-hg-orange transition-colors" data-product="gel-promo2" aria-label="Aumentar cantidad">+</button>
@@ -262,6 +265,9 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
           <button class="add-to-cart btn-primary w-full text-white font-semibold px-7 py-4 rounded-xl text-base" data-product="gel-promo2">
             Añadir al carrito
           </button>
+          <p class="out-of-stock-label hidden bg-hg-bg border border-white/20 text-white/60 font-semibold px-7 py-4 rounded-xl text-base" data-product="gel-promo2">
+            Agotado
+          </p>
         </div>
 
       </div>
@@ -333,6 +339,19 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
 
     <div id="cart-items-list" class="space-y-4 mb-2"></div>
 
+    <div class="pt-4 border-t border-white/10">
+      <p class="text-white text-sm font-semibold mb-2">Código de descuento</p>
+      <div class="flex gap-2">
+        <input id="discount-input" type="text" placeholder="Ej. CODIGOEJEMPLO10" class="flex-1 bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange uppercase">
+        <button id="discount-apply-btn" class="bg-hg-purple hover:bg-hg-purple-dark text-white text-sm font-semibold px-4 rounded-lg transition-colors">Aplicar</button>
+      </div>
+      <p id="discount-message" class="hidden text-xs mt-2"></p>
+      <div id="discount-applied-row" class="hidden flex items-center justify-between mt-2 bg-hg-purple/15 border border-hg-purple rounded-lg px-4 py-2">
+        <span class="text-white text-xs"><span id="discount-applied-code"></span> aplicado ✅</span>
+        <button id="discount-remove-btn" class="text-white/60 hover:text-hg-orange text-xs underline">Quitar</button>
+      </div>
+    </div>
+
     <div id="checkout-form" class="hidden space-y-3 pt-4 border-t border-white/10">
       <p class="text-white text-sm font-semibold mb-2">Datos de envío</p>
       <input id="cust-name" type="text" placeholder="Nombre completo" class="w-full bg-hg-bg border border-white/15 rounded-lg px-4 py-3 text-sm text-white placeholder-white/40 focus:outline-none focus:border-hg-orange">
@@ -353,6 +372,10 @@ src="https://www.facebook.com/tr?id=25780456441631629&ev=PageView&noscript=1"
     <div class="flex items-center justify-between mb-1 text-sm">
       <span class="text-white/70">Subtotal</span>
       <span id="cart-subtotal" class="text-white">$0</span>
+    </div>
+    <div id="cart-discount-row" class="hidden flex items-center justify-between mb-1 text-sm">
+      <span class="text-hg-purple">Descuento</span>
+      <span id="cart-discount" class="text-hg-purple">-$0</span>
     </div>
     <div class="flex items-center justify-between mb-4 text-sm">
       <span class="text-white/70">Envío</span>
@@ -422,6 +445,28 @@ function initCart() {
   const REDIRECT_URL =
     window.location.protocol === "https:" ? window.location.href.split("#")[0] : SITE_URL;
 
+  // ---------- Supabase (inventario + códigos de descuento) ----------
+  // La "anon/publishable" key es pública a propósito — solo permite LEER
+  // (las tablas tienen políticas de solo lectura). Escribir (descontar
+  // stock, marcar un código como usado) solo lo hace la función serverless
+  // confirm-order.js con la llave secreta, nunca el navegador.
+  const SUPABASE_URL = "https://dzeoqjeeowwtloqzonuh.supabase.co";
+  const SUPABASE_ANON_KEY = "sb_publishable__mM1HdpVj-1sIB3mDzgvKg_YMyLzZsW";
+  const supabaseHeaders = {
+    apikey: SUPABASE_ANON_KEY,
+    Authorization: "Bearer " + SUPABASE_ANON_KEY,
+  };
+
+  let appliedDiscount = null; // { code, type, value }
+
+  function calculateDiscount(subtotal) {
+    if (!appliedDiscount) return 0;
+    if (appliedDiscount.type === "percent") {
+      return Math.round(subtotal * (appliedDiscount.value / 100));
+    }
+    return Math.min(appliedDiscount.value, subtotal);
+  }
+
   let cart = {}; // { productId: qty }
   const selectedQtyByProduct = { "gel-1": 1, "gel-promo2": 1 };
 
@@ -452,6 +497,14 @@ function initCart() {
   const cartSubtotalEl = document.getElementById("cart-subtotal");
   const cartShippingEl = document.getElementById("cart-shipping");
   const cartTotal = document.getElementById("cart-total");
+  const cartDiscountRow = document.getElementById("cart-discount-row");
+  const cartDiscountEl = document.getElementById("cart-discount");
+  const discountInput = document.getElementById("discount-input");
+  const discountApplyBtn = document.getElementById("discount-apply-btn");
+  const discountMessage = document.getElementById("discount-message");
+  const discountAppliedRow = document.getElementById("discount-applied-row");
+  const discountAppliedCode = document.getElementById("discount-applied-code");
+  const discountRemoveBtn = document.getElementById("discount-remove-btn");
   const checkoutForm = document.getElementById("checkout-form");
   const formError = document.getElementById("form-error");
   const coverageWarning = document.getElementById("coverage-warning");
@@ -503,6 +556,42 @@ function initCart() {
     });
   });
 
+  // ---------- Consulta el stock real en Supabase y actualiza la tienda ----------
+  let currentStock = {}; // { productId: number }
+
+  async function loadStock() {
+    try {
+      const res = await fetch(
+        SUPABASE_URL + "/rest/v1/inventario?select=product_id,stock",
+        { headers: supabaseHeaders }
+      );
+      const rows = await res.json();
+      if (!res.ok || !Array.isArray(rows)) return;
+      rows.forEach((row) => {
+        currentStock[row.product_id] = row.stock;
+      });
+      Object.keys(PRODUCTS).forEach((id) => {
+        const outOfStock = (currentStock[id] || 0) <= 0;
+        const addBtn = document.querySelector('.add-to-cart[data-product="' + id + '"]');
+        const label = document.querySelector('.out-of-stock-label[data-product="' + id + '"]');
+        const qtyControls = addBtn ? addBtn.closest(".flex.flex-col").querySelector(".qty-controls") : null;
+        if (!addBtn || !label) return;
+        if (outOfStock) {
+          addBtn.classList.add("hidden");
+          label.classList.remove("hidden");
+          if (qtyControls) qtyControls.classList.add("hidden");
+        } else {
+          addBtn.classList.remove("hidden");
+          label.classList.add("hidden");
+          if (qtyControls) qtyControls.classList.remove("hidden");
+        }
+      });
+    } catch (err) {
+      console.error("No se pudo consultar el stock:", err);
+    }
+  }
+  loadStock();
+
   function updateShippingDisplay() {
     const dep = departmentSelect.value;
     const info = getShippingInfo(dep);
@@ -522,11 +611,87 @@ function initCart() {
     }
 
     const subtotal = cartSubtotal();
+    const discount = calculateDiscount(subtotal);
     const shippingFee = info.fee || 0;
+
     cartSubtotalEl.textContent = fmt(subtotal);
-    cartTotal.textContent = fmt(subtotal + (info.blocked ? 0 : shippingFee));
+    if (discount > 0) {
+      cartDiscountRow.classList.remove("hidden");
+      cartDiscountEl.textContent = "-" + fmt(discount);
+    } else {
+      cartDiscountRow.classList.add("hidden");
+    }
+    cartTotal.textContent = fmt(subtotal - discount + (info.blocked ? 0 : shippingFee));
   }
   departmentSelect.addEventListener("change", updateShippingDisplay);
+
+  function showDiscountMessage(text, isError) {
+    discountMessage.textContent = text;
+    discountMessage.className = "text-xs mt-2 " + (isError ? "text-hg-orange" : "text-hg-purple");
+    discountMessage.classList.remove("hidden");
+  }
+
+  discountApplyBtn.addEventListener("click", async () => {
+    const raw = discountInput.value.trim().toUpperCase();
+    if (!raw) {
+      showDiscountMessage("Escribe un código antes de aplicar.", true);
+      return;
+    }
+    discountApplyBtn.disabled = true;
+    discountApplyBtn.textContent = "Verificando...";
+    try {
+      const res = await fetch(
+        SUPABASE_URL + "/rest/v1/discount_code?code=ilike." + encodeURIComponent(raw) +
+          "&select=code,type,value,active,max_uses,current_uses,expires_at",
+        { headers: supabaseHeaders }
+      );
+      const rows = await res.json();
+      discountApplyBtn.textContent = "Aplicar";
+
+      if (!res.ok || !Array.isArray(rows) || rows.length === 0) {
+        discountApplyBtn.disabled = false;
+        showDiscountMessage("Ese código no es válido.", true);
+        return;
+      }
+      const found = rows[0];
+      if (!found.active) {
+        discountApplyBtn.disabled = false;
+        showDiscountMessage("Ese código ya no está activo.", true);
+        return;
+      }
+      if (found.max_uses !== null && found.current_uses >= found.max_uses) {
+        discountApplyBtn.disabled = false;
+        showDiscountMessage("Ese código ya alcanzó su límite de usos.", true);
+        return;
+      }
+      if (found.expires_at && new Date(found.expires_at) < new Date()) {
+        discountApplyBtn.disabled = false;
+        showDiscountMessage("Ese código ya venció.", true);
+        return;
+      }
+
+      appliedDiscount = { code: found.code, type: found.type, value: found.value };
+      discountMessage.classList.add("hidden");
+      discountAppliedCode.textContent = found.code;
+      discountAppliedRow.classList.remove("hidden");
+      discountInput.value = "";
+      discountInput.disabled = true;
+      updateShippingDisplay();
+    } catch (err) {
+      discountApplyBtn.disabled = false;
+      discountApplyBtn.textContent = "Aplicar";
+      showDiscountMessage("No pudimos verificar el código. Intenta de nuevo.", true);
+    }
+  });
+
+  discountRemoveBtn.addEventListener("click", () => {
+    appliedDiscount = null;
+    discountAppliedRow.classList.add("hidden");
+    discountMessage.classList.add("hidden");
+    discountInput.disabled = false;
+    discountApplyBtn.disabled = false;
+    updateShippingDisplay();
+  });
 
   function renderCart() {
     checkoutError.classList.add("hidden");
@@ -589,6 +754,12 @@ function initCart() {
       checkoutForm.classList.add("hidden");
       cartFooter.classList.add("hidden");
       cartCount.classList.add("hidden");
+      appliedDiscount = null;
+      discountAppliedRow.classList.add("hidden");
+      discountMessage.classList.add("hidden");
+      discountInput.value = "";
+      discountInput.disabled = false;
+      discountApplyBtn.disabled = false;
     }
   }
 
@@ -629,8 +800,9 @@ function initCart() {
     formError.classList.add("hidden");
 
     const subtotal = cartSubtotal();
+    const discount = calculateDiscount(subtotal);
     const shippingFee = shippingInfo.fee || 0;
-    const total = subtotal + shippingFee;
+    const total = subtotal - discount + shippingFee;
     const amountInCents = total * 100;
     const reference = "HG-" + Date.now();
 
@@ -699,14 +871,32 @@ function initCart() {
         checkoutBtn.textContent = "Pagar con Wompi";
         const transaction = result && result.transaction;
         if (transaction && transaction.status === "APPROVED") {
-          const itemsText = Object.keys(cart)
+          const itemsForOrder = Object.keys(cart)
             .filter((id) => cart[id] > 0)
-            .map((id) => PRODUCTS[id].name + " x" + cart[id])
+            .map((id) => ({ productId: id, qty: cart[id] }));
+          const itemsText = itemsForOrder
+            .map((it) => PRODUCTS[it.productId].name + " x" + it.qty)
             .join(", ");
+
+          // Descuenta el stock y marca el código de descuento como usado.
+          // No bloquea el mensaje de WhatsApp si esto falla (el pago ya
+          // está aprobado); solo se registra el error en consola.
+          fetch("/.netlify/functions/confirm-order", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              items: itemsForOrder,
+              discountCode: appliedDiscount ? appliedDiscount.code : null,
+            }),
+          })
+            .then(() => loadStock())
+            .catch((err) => console.error("Error confirmando pedido en Supabase:", err));
+
           const msg =
             "¡Nuevo pedido pagado! 🎉%0A" +
             "Productos: " + itemsText + "%0A" +
             "Subtotal: " + fmt(subtotal) + "%0A" +
+            (discount > 0 ? "Descuento (" + appliedDiscount.code + "): -" + fmt(discount) + "%0A" : "") +
             "Envío: " + (shippingFee === 0 ? "Gratis" : fmt(shippingFee)) + "%0A" +
             "Total: " + fmt(total) + "%0A" +
             "Cliente: " + name + "%0A" +
